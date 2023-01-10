@@ -5,33 +5,38 @@ using UnityEngine;
 
 public class CraftSword : MonoBehaviour
 {
+  
     List<GameObject> IronObj=new List<GameObject>();
     [SerializeField] public Transform CreateObj;
     [SerializeField] private GameObject Sword;
     
     [SerializeField] private int Count=0;
+    
+    
     void OnTriggerEnter(Collider other)
     {
-        
-        if(other.tag=="Iron"){
-            IronObj.Add(other.gameObject);
+        if(other.name=="IgnotIron"){
+            
             Count++;
+            IronObj.Add(other.gameObject);
+            Destroy(other.gameObject);
             if(CreateSword(Count)){
                    for(int i=0;i<IronObj.Count;i++){
-                     Destroy(IronObj[i].gameObject);
-                     IronObj[i]=null;
+                    if(IronObj[i]!=null){
+                     
+                     IronObj.Clear();
+                    }
                     
                    }
-                   for(int i=0;i<IronObj.Count;i++){
-                     Debug.Log(IronObj[i]);
-                   }
-                   
-                   GameObject CSword=Instantiate(Sword,CreateObj.position,Quaternion.identity) as GameObject;
+                   Count=0;
+                   GameObject CSword=Instantiate(Sword,CreateObj.position,Quaternion.Euler(new Vector3(0, 0, 90))) as GameObject;
+                  
             }
         }
     }
     public bool CreateSword(int Count){
         if(Count==2){
+          
         return true;
         }else{
 
