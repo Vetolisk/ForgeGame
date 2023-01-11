@@ -13,7 +13,7 @@ public class Ignot : MonoBehaviour
         {
             gameObject.GetComponent<Renderer>().material.color = targetColor;
             Hot = true;
-            Debug.Log(Hot);
+            gameObject.name = "BestIgnot";
         }
         else
         {
