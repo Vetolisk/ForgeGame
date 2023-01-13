@@ -8,6 +8,7 @@ public class SpawnIronIgnot : MonoBehaviour
     [SerializeField] private float TiemSeconds;
     [SerializeField] public Transform CreateObj;
     public GameObject PrefabIronIgnot;
+    public GameObject Minecart;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +23,12 @@ public class SpawnIronIgnot : MonoBehaviour
     
     IEnumerator TimeCreate()
     {
-        while (true) { 
-        GameObject IronIgnotClone = Instantiate(PrefabIronIgnot, CreateObj.position, Quaternion.identity) as GameObject;
-        IronIgnotClone.name = "IgnotIron";
+        while (true) {
+            Debug.Log($"{Minecart.GetComponent<Minecart>().flagAllIgnot} {Minecart.GetComponent<Minecart>().flagStopOldMove}");
+            if (Minecart.GetComponent<Minecart>().flagAllIgnot&& Minecart.GetComponent<Minecart>().flagStopOldMove) {
+                GameObject IronIgnotClone = Instantiate(PrefabIronIgnot, CreateObj.position, Quaternion.identity) as GameObject;
+                IronIgnotClone.name = "IgnotIron";
+            }
         yield return new WaitForSeconds(TiemSeconds);
         }
         

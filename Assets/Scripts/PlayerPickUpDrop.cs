@@ -12,10 +12,10 @@ public class PlayerPickUpDrop : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E)){
+        if(Input.GetKeyDown(KeyCode.E)||Input.GetMouseButtonDown(0)){
             if(objectGrabbable == null){
             float pickupDistance=2f;
-          if( Physics.Raycast(playerCameraTransform.position,playerCameraTransform.forward, out RaycastHit raycastHit,pickupDistance)){
+          if( Physics.Raycast(playerCameraTransform.position,playerCameraTransform.forward, out RaycastHit raycastHit,pickupDistance, pickUpLayerMask)){
             if(raycastHit.transform.TryGetComponent(out objectGrabbable)){
                 objectGrabbable.Grab(objectGrabPointTransform);
                 //Debug.Log(objectGrabbable);
