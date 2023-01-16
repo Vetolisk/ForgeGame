@@ -16,9 +16,14 @@ namespace Pathfinding {
 	public class AIDestinationSetter : VersionedMonoBehaviour {
 		/// <summary>The object that the AI should move to</summary>
 		public Transform target;
+		public GameObject targetObj;
 		IAstarAI ai;
-
-		void OnEnable () {
+        private void Start()
+        {
+            targetObj = GameObject.Find("Artefact");
+			target = targetObj.transform;
+        }
+        void OnEnable () {
 			ai = GetComponent<IAstarAI>();
 			// Update the destination right before searching for a path as well.
 			// This is enough in theory, but this script will also update the destination every
