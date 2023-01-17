@@ -62,13 +62,14 @@ namespace Pathfinding {
 					positionFound = true;
 				}
 			}
+			if (target!=null) {
+				if (positionFound && newPosition != target.position) {
+					target.position = newPosition;
 
-			if (positionFound && newPosition != target.position) {
-				target.position = newPosition;
-
-				if (onlyOnDoubleClick) {
-					for (int i = 0; i < ais.Length; i++) {
-						if (ais[i] != null) ais[i].SearchPath();
+					if (onlyOnDoubleClick) {
+						for (int i = 0; i < ais.Length; i++) {
+							if (ais[i] != null) ais[i].SearchPath();
+						}
 					}
 				}
 			}

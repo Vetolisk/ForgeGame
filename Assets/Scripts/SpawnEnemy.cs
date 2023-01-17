@@ -1,29 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    public GameObject preabEnemy;
-    public int Count;
-   
-    // Start is called before the first frame update
-    void Start()
-    {
-        for (int i = 0; i < Count; i++)
-        {
-            for (int j = 0; i < Count; i++)
-            {
-                GameObject CloneEnemy = Instantiate(preabEnemy, new Vector3(gameObject.transform.position.x + i, gameObject.transform.position.y, gameObject.transform.position.z+j), Quaternion.identity) as GameObject;
-            }
-            
-        }
-       
-    }
+   [SerializeField] private GameObject preabEnemy;
+    private float timeRemaining;
+   [SerializeField] private float oldtime;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        timeRemaining = oldtime;
+    }
     void Update()
     {
-        
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+        }
+        else
+        {
+
+            GameObject CloneEnemy = Instantiate(preabEnemy, transform.position, Quaternion.identity) as GameObject;
+            CloneEnemy.name = "Bot";
+            timeRemaining = oldtime;
+        }
     }
 }

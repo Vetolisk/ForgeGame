@@ -24,7 +24,7 @@ public class SpawnIronIgnot : MonoBehaviour
     IEnumerator TimeCreate()
     {
         while (true) {
-            Debug.Log($"{Minecart.GetComponent<Minecart>().flagAllIgnot} {Minecart.GetComponent<Minecart>().flagStopOldMove}");
+          //  Debug.Log($"{Minecart.GetComponent<Minecart>().flagAllIgnot} {Minecart.GetComponent<Minecart>().flagStopOldMove}");
             if (Minecart.GetComponent<Minecart>().flagAllIgnot&& Minecart.GetComponent<Minecart>().flagStopOldMove) {
                 GameObject IronIgnotClone = Instantiate(PrefabIronIgnot, CreateObj.position, Quaternion.identity) as GameObject;
                 IronIgnotClone.name = "IgnotIron";

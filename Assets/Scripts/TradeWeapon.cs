@@ -25,7 +25,7 @@ public class TradeWeapon : MonoBehaviour
     {
         if(other.name=="IronSword"){
             Destroy(other.gameObject);
-             GameObject SwordMenClone=Instantiate(PrefabSwordMen,new Vector3(CreateObj.position.x+i, CreateObj.position.y, CreateObj.position.z) ,Quaternion.identity) as GameObject;
+             GameObject SwordMenClone=Instantiate(PrefabSwordMen,new Vector3(CreateObj.position.x+i, CreateObj.position.y, CreateObj.position.z) , Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
              i -= 3;
              SwordMenClone.name="SwordMen";
              
@@ -33,7 +33,7 @@ public class TradeWeapon : MonoBehaviour
         if (other.name == "Bow")
         {
             Destroy(other.gameObject);
-            GameObject BowMenClone = Instantiate(PrefabBowMen, new Vector3(CreateObj.position.x + i, CreateObj.position.y, CreateObj.position.z), Quaternion.identity) as GameObject;
+            GameObject BowMenClone = Instantiate(PrefabBowMen, new Vector3(CreateObj.position.x + i, CreateObj.position.y, CreateObj.position.z), Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
             i -= 3;
             BowMenClone.name = "BowMen";
 
@@ -41,7 +41,7 @@ public class TradeWeapon : MonoBehaviour
         if (other.name == "BestSword")
         {
             Destroy(other.gameObject);
-            GameObject BowMenClone = Instantiate(PrefabBestSwordMen, new Vector3(CreateObj.position.x + i, CreateObj.position.y, CreateObj.position.z), Quaternion.identity) as GameObject;
+            GameObject BowMenClone = Instantiate(PrefabBestSwordMen, new Vector3(CreateObj.position.x + i, CreateObj.position.y, CreateObj.position.z), Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
             i -= 3;
             BowMenClone.name = "BestSwordMen";
 
