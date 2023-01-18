@@ -1,4 +1,3 @@
-using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +5,6 @@ using UnityEngine;
 public class AICharacter : MonoBehaviour
 {
     public float OldSpeed;
-    public RichAI RAI;
-    public AIDestinationSetter AID;
     public FieldOfView FOV;
     public GameObject targetObj;
     public GameObject AttackObj;
@@ -19,7 +16,7 @@ public class AICharacter : MonoBehaviour
     //public bool timerIsRunning = false;
     void Start()
     {
-        OldSpeed = RAI.maxSpeed;
+        
         targetObj = GameObject.Find("Artefact");
 
         timeRemaining = oldtime;
@@ -32,7 +29,7 @@ public class AICharacter : MonoBehaviour
             AttackObj = FOV.playerRef;
            
             
-            RAI.maxSpeed = 0;
+          
             if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
@@ -57,9 +54,7 @@ public class AICharacter : MonoBehaviour
         }
         else
         {
-            
-            AID.target = targetObj.transform;
-            RAI.maxSpeed = OldSpeed;
+
         }
     }
     public void SetDamage(int damage)    

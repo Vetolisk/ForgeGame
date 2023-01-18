@@ -1,12 +1,9 @@
-using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AISolder : MonoBehaviour
 {
-    public RichAI RAI;
-    public AIDestinationSetter AID;
     public FieldOfView FOV;
     public GameObject targetObj;
     public int Health;
