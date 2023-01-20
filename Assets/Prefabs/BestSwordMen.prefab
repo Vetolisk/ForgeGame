@@ -177,6 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036117392764629365}
   - component: {fileID: 1669681187528232828}
+  - component: {fileID: 4464773957194988914}
   m_Layer: 0
   m_Name: BestSwordMen
   m_TagString: Solder
@@ -214,6 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc087912fa82d4e4a91686f546b0e520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  agent: {fileID: 4464773957194988914}
   FOV: {fileID: 7413297366244846630}
   targetObj: {fileID: 0}
   Health: 100
@@ -221,6 +224,28 @@ MonoBehaviour:
   SwordDamage: 20
   timeRemaining: 0
   oldtime: 1
+--- !u!195 &4464773957194988914
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3973667173915813021}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.33
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7499571709750837202
 GameObject:
   m_ObjectHideFlags: 0

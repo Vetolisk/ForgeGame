@@ -11,6 +11,7 @@ public class ManagerGame : MonoBehaviour
     public GameObject TargetSphereClone;
     public GameObject CameraOne;
     public GameObject CameraTwo;
+    public LayerMask layerMask;
     private bool flag=true;
     void Update()
     {
@@ -30,6 +31,7 @@ public class ManagerGame : MonoBehaviour
                 CameraTwo.SetActive(false);
                 flag = true;
             }
+            Destroy(TargetSphereClone);
         }
         if (Input.GetMouseButton(0) && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
         {
@@ -39,8 +41,9 @@ public class ManagerGame : MonoBehaviour
                 {
                 if (TargetSphereClone==null) {
                     Solder =  hit.collider.gameObject.transform.parent.gameObject;
-                    TargetSphereClone = Instantiate(TargetSphere, hit.collider.gameObject.transform.position, Quaternion.identity) as GameObject;
+                    TargetSphereClone = Instantiate(TargetSphere,new Vector3( hit.collider.gameObject.transform.position.x, hit.collider.gameObject.transform.position.y-1, hit.collider.gameObject.transform.position.z), Quaternion.identity) as GameObject;
 
+                   // Solder.GetComponent<AISolder>().agent.SetDestination(TargetSphereClone.transform.position);
                 }
                     // hit.collider.gameObject.transform
 
@@ -50,12 +53,31 @@ public class ManagerGame : MonoBehaviour
             
             
         }
-       
+        if(Input.GetMouseButton(0)&& TargetSphereClone != null)
+        {
+            Ray ray = CameraTwo.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, layerMask))
+            {
+                TargetSphereClone.transform.position = raycastHit.point;
+                Solder.GetComponent<AISolder>().agent.SetDestination(TargetSphereClone.transform.position);
+            }
+           // Solder.GetComponent<AISolder>().agent.SetDestination(TargetSphereClone.transform.position);
+        }
         if (Input.GetMouseButton(1))
         {
             if (TargetSphere!=null&& Solder!=null) {
                 Destroy(TargetSphereClone);
             }
         }
+        //if (TargetSphereClone != null)
+        //{
+        //    Ray ray = CameraTwo.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+        //    if (Physics.Raycast(ray,out RaycastHit raycastHit,float.MaxValue,layerMask))
+        //    {
+        //        TargetSphereClone.transform.position = raycastHit.point;
+        //        Solder.GetComponent<AISolder>().agent.SetDestination(TargetSphereClone.transform.position);
+        //    }
+        //}
     }
+    
 }

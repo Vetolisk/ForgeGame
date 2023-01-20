@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AICharacter : MonoBehaviour
 {
+    public NavMeshAgent agent;
+    public int globalDistance = 40;
+    public GameObject target;
     public float OldSpeed;
     public FieldOfView FOV;
     public GameObject targetObj;
@@ -16,7 +20,7 @@ public class AICharacter : MonoBehaviour
     //public bool timerIsRunning = false;
     void Start()
     {
-        
+        agent.SetDestination(target.transform.position);
         targetObj = GameObject.Find("Artefact");
 
         timeRemaining = oldtime;

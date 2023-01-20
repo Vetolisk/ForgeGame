@@ -14,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Floor
   - Player
   - Platforms
   - PostProcessing
@@ -22,7 +22,7 @@ TagManager:
   - Objects
   - Agent
   - Solder
-  - 
+  - Destructable
   - 
   - 
   - 

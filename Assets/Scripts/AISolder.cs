@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AISolder : MonoBehaviour
 {
+    public GameObject target;
+    public NavMeshAgent agent;
     public FieldOfView FOV;
     public GameObject targetObj;
     public int Health;
@@ -20,6 +23,7 @@ public class AISolder : MonoBehaviour
     }
     private void Update()
     {
+
         if (FOV.canSeePlayer)
         {
             targetObj = FOV.playerRef;
