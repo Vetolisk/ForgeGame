@@ -36,7 +36,7 @@ public class CraftSword : MonoBehaviour
                    }
                    Count=0;
                    GameObject CSword=Instantiate(Sword,CreateObj.position,Quaternion.Euler(new Vector3(0, 0, 90))) as GameObject;
-                   CSword.name="IronSword";
+                   CSword.name="Sword";
                 flagCraftBestSword = true;
                 flagCraftBow = true;
             }
