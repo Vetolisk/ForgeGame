@@ -43,18 +43,8 @@ public class AICharacter : MonoBehaviour
                 if (AttackObj!=null) {
                     AttackObj.transform.parent.GetComponent<AISolder>().SetDamage(SwordDamage);
                 }
-                    
-                
-
-
-
                 timeRemaining = oldtime;
             }
-
-
-
-
-
         }
         else
         {

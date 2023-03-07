@@ -11,16 +11,26 @@ public class ManagerGame : MonoBehaviour
     public GameObject TargetSphereClone;
     public GameObject CameraOne;
     public GameObject CameraTwo;
+
+    public GameObject PanelMap;
+
+    public GameObject CreateSlot;
+
+     public GameObject Panel;
     public LayerMask layerMask;
     private bool flag=true;
+    void Start(){
+         PanelMap.SetActive(false);
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.M)) {
             if (flag) {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 CameraOne.SetActive(false);
                 CameraTwo.SetActive(true);
+                PanelMap.SetActive(true);
                 flag = false;
             }
             else
@@ -29,11 +39,13 @@ public class ManagerGame : MonoBehaviour
                 Cursor.visible = false;
                 CameraOne.SetActive(true);
                 CameraTwo.SetActive(false);
+                PanelMap.SetActive(false);
                 flag = true;
             }
             Destroy(TargetSphereClone);
         }
-        if (Input.GetMouseButton(0) && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+        
+       /* if (Input.GetMouseButton(0) && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
         {
 
            
@@ -78,6 +90,18 @@ public class ManagerGame : MonoBehaviour
         //        Solder.GetComponent<AISolder>().agent.SetDestination(TargetSphereClone.transform.position);
         //    }
         //}
+        */
     }
-    
+    public void ButtonOnCreate(){
+        if(CreateSlot.GetComponent<ManagerCreateSolder>().WeaponRack.GetComponent<TradeWeapon>().Weapons.Count>0){
+           CreateSlot.GetComponent<ManagerCreateSolder>().text.text=  CreateSlot.GetComponent<ManagerCreateSolder>().WeaponRack.GetComponent<TradeWeapon>().Weapons[0].name;
+           CreateSlot.GetComponent<ManagerCreateSolder>().i=0;
+        }
+             Panel.SetActive(true);
+        
+
+    }
+    public void ButtonOfCreate(){
+        Panel.SetActive(false);
+    }
 }

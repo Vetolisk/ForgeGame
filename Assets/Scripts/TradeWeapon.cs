@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TradeWeapon : MonoBehaviour
 {
+    public List<GameObject> Weapons;
     public float PosStand;
     public GameObject PrefabSwordMen;
     public GameObject PrefabBowMen;
@@ -18,25 +19,19 @@ public class TradeWeapon : MonoBehaviour
     {
         PosStand=2.5f;
     }
- 
-        
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void OnTriggerEnter(Collider other)
     {
         if(other.name=="Sword"||other.name == "Bow"||other.name == "BestSword"){
         if(i<11){
         i++;
         Debug.Log(PosStand);
+        Weapons.Add(other.gameObject);
         other.gameObject.GetComponent<Rigidbody>().isKinematic=true;
+        Destroy(other.gameObject.GetComponent<ObjectGrabbable>());
         other.gameObject.transform.SetParent(StandWeapon.transform);       
         other.gameObject.transform.localPosition=new Vector3(PosStand, 0, 0.35f);
         PosStand-=0.5f;
+        Debug.Log(PosStand);
         other.gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
         }
         }
