@@ -13,27 +13,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c7caf2115490f6439506a3874cf187b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.30173
+      value: 0.22172026
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c7caf2115490f6439506a3874cf187b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.30173
+      value: 0.22172026
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c7caf2115490f6439506a3874cf187b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.30173
+      value: 0.22172026
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c7caf2115490f6439506a3874cf187b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.869
+      value: 1.928
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c7caf2115490f6439506a3874cf187b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.62218857
+      value: 0.62731
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c7caf2115490f6439506a3874cf187b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.27
+      value: 0.94027
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c7caf2115490f6439506a3874cf187b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -94,18 +94,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &290921088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239630219466603312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e18f57c281a55d74a9c47513b5c0c4d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &848941995700110661
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119,3 +107,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2479857, y: 0.23458512, z: 6.7516212}
   m_Center: {x: 0, y: -0.000000230968, z: 2.646978e-23}
+--- !u!114 &290921088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239630219466603312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18f57c281a55d74a9c47513b5c0c4d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
