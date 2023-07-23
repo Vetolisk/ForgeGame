@@ -58,5 +58,19 @@ public class PeopleAI : MonoBehaviour
             Destroy(gameObject);
             sp.CreatePeople();
         }
+        if(other.gameObject.name=="Bow"){
+            Destroy(other.gameObject);
+             UIWeapon[Count].gameObject.SetActive(false);
+            Debug.Log("Thanks");
+            Destroy(gameObject);
+            sp.CreatePeople();
+        }
+         if(other.gameObject.name=="BestSword"){
+            Destroy(other.gameObject);
+             UIWeapon[Count].gameObject.SetActive(false);
+            Debug.Log("Thanks");
+            Destroy(gameObject);
+            sp.CreatePeople();
+        }
     }
 }
