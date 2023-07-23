@@ -10,6 +10,8 @@ public class PeopleAI : MonoBehaviour
     public List <GameObject> UIWeapon;
     public GameObject Player;
 
+    public PlayerСharacteristics PlayerChar;
+
     private bool EndTask;
     private bool End;
     private int Count;
@@ -19,12 +21,14 @@ public class PeopleAI : MonoBehaviour
         Count=Random.Range(0,2);
         End=true;
         Player= GameObject.FindGameObjectWithTag("Player");
+        PlayerChar=Player.GetComponent<PlayerСharacteristics>();
          agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
           agent.destination = Target.transform.position;
      if(End){
         if (!agent.pathPending)
@@ -48,6 +52,8 @@ public class PeopleAI : MonoBehaviour
         }
         
       }
+      */
+        
     }
     void OnTriggerEnter(Collider other)
     {
@@ -55,6 +61,7 @@ public class PeopleAI : MonoBehaviour
             Destroy(other.gameObject);
              UIWeapon[Count].gameObject.SetActive(false);
             Debug.Log("Thanks");
+            PlayerChar.Money=PlayerChar.Money+20;
             Destroy(gameObject);
             sp.CreatePeople();
         }
@@ -62,6 +69,7 @@ public class PeopleAI : MonoBehaviour
             Destroy(other.gameObject);
              UIWeapon[Count].gameObject.SetActive(false);
             Debug.Log("Thanks");
+            PlayerChar.Money=PlayerChar.Money+30;
             Destroy(gameObject);
             sp.CreatePeople();
         }
@@ -69,6 +77,7 @@ public class PeopleAI : MonoBehaviour
             Destroy(other.gameObject);
              UIWeapon[Count].gameObject.SetActive(false);
             Debug.Log("Thanks");
+            PlayerChar.Money=PlayerChar.Money+40;
             Destroy(gameObject);
             sp.CreatePeople();
         }
