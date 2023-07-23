@@ -4,19 +4,21 @@ using UnityEngine;
 using UnityEngine.AI;
 public class PeopleAI : MonoBehaviour
 {
+    public SpawnPeople sp;
     public NavMeshAgent agent;
     public GameObject Target;
-    public GameObject UIWeapon;
+    public List <GameObject> UIWeapon;
     public GameObject Player;
 
     private bool EndTask;
     private bool End;
+    private int Count;
     // Start is called before the first frame update
     void Start()
     {
+        Count=Random.Range(0,2);
         End=true;
         Player= GameObject.FindGameObjectWithTag("Player");
-        UIWeapon.gameObject.SetActive(false);
          agent = GetComponent<NavMeshAgent>();
     }
 
@@ -31,7 +33,7 @@ public class PeopleAI : MonoBehaviour
             {
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
-                    UIWeapon.gameObject.SetActive(true);
+                    UIWeapon[Count].gameObject.SetActive(true);
                     EndTask=true;
                     End=false;
                     
@@ -51,9 +53,10 @@ public class PeopleAI : MonoBehaviour
     {
         if(other.gameObject.name=="Sword"){
             Destroy(other.gameObject);
-            UIWeapon.gameObject.SetActive(false);
+             UIWeapon[Count].gameObject.SetActive(false);
             Debug.Log("Thanks");
             Destroy(gameObject);
+            sp.CreatePeople();
         }
     }
 }

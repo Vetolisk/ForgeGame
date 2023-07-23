@@ -15,4 +15,9 @@ public class SpawnPeople : MonoBehaviour
     {
         
     }
+    public void CreatePeople(){
+        //Add timer for create
+         GameObject ClonePeople=Instantiate(People,gameObject.transform.position,Quaternion.identity);
+    }
+    
 }
