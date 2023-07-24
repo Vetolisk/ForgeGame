@@ -7,8 +7,11 @@ public class PeopleAI : MonoBehaviour
     public SpawnPeople sp;
     public NavMeshAgent agent;
     public GameObject Target;
+    public GameObject Walk;
+
     public List <GameObject> UIWeapon;
     public GameObject Player;
+    public GameObject Weapon;
 
     public PlayerСharacteristics PlayerChar;
 
@@ -46,13 +49,16 @@ public class PeopleAI : MonoBehaviour
              
                     }           
         } */    
-     
+        // Если нет оружия то идти в кузницу, иначе идти заниматься делом
+        if(Weapon==null){
 
+        
          if(agent.remainingDistance<=agent.stoppingDistance){ 
-                WaitTime();                    
+                WaitTime();        
         }  
-     
-    
+        }else{
+          agent.SetDestination(Walk.transform.position);
+        }
     }
     public void TavernStop(){
 
@@ -60,28 +66,35 @@ public class PeopleAI : MonoBehaviour
         void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.name=="Sword"){
-            Destroy(other.gameObject);
-             UIWeapon[Count].gameObject.SetActive(false);
+            Weapon=other.gameObject;
+            other.gameObject.transform.SetParent(gameObject.transform);
+            other.gameObject.SetActive(false);
+            //Destroy(other.gameObject);
+            UIWeapon[Count].gameObject.SetActive(false);          
             Debug.Log("Thanks");
             PlayerChar.Money=PlayerChar.Money+20;
-            Destroy(gameObject);
-            sp.CreatePeople();
+            
+            //sp.CreatePeople();
         }
         if(other.gameObject.name=="Bow"){
-            Destroy(other.gameObject);
-             UIWeapon[Count].gameObject.SetActive(false);
+            Weapon=other.gameObject;
+            other.gameObject.SetActive(false);
+            //Destroy(other.gameObject);
+            UIWeapon[Count].gameObject.SetActive(false);          
             Debug.Log("Thanks");
             PlayerChar.Money=PlayerChar.Money+30;
-            Destroy(gameObject);
-            sp.CreatePeople();
+            
+            //sp.CreatePeople();
         }
          if(other.gameObject.name=="BestSword"){
-            Destroy(other.gameObject);
-             UIWeapon[Count].gameObject.SetActive(false);
+            Weapon=other.gameObject;
+            other.gameObject.SetActive(false);
+            //Destroy(other.gameObject);
+            UIWeapon[Count].gameObject.SetActive(false);         
             Debug.Log("Thanks");
             PlayerChar.Money=PlayerChar.Money+40;
-            Destroy(gameObject);
-            sp.CreatePeople();
+            
+            //sp.CreatePeople();
         }
     }
     public void Stop(){

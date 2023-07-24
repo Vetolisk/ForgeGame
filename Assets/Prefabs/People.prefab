@@ -970,11 +970,15 @@ MonoBehaviour:
   sp: {fileID: 7485314702814487178, guid: 12c12255622ed37489a2643cb544e508, type: 3}
   agent: {fileID: 8654048036609244413}
   Target: {fileID: 74564277929549698, guid: a81d622c9243b484f8739a83538b8837, type: 3}
+  Walk: {fileID: 4469398568113103081, guid: 23eb35c0547278848b30bc7f38f0d798, type: 3}
   UIWeapon:
   - {fileID: 4080632532674345132}
   - {fileID: 2736906606929408249}
   - {fileID: 6710266074074368303}
   Player: {fileID: 0}
+  Weapon: {fileID: 0}
+  PlayerChar: {fileID: 0}
+  oldtime: 0
 --- !u!65 &4701034353921167941
 BoxCollider:
   m_ObjectHideFlags: 0
