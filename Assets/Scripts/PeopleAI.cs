@@ -76,26 +76,6 @@ public class PeopleAI : MonoBehaviour
             
             //sp.CreatePeople();
         }
-        if(other.gameObject.name=="Bow"){
-            Weapon=other.gameObject;
-            other.gameObject.SetActive(false);
-            //Destroy(other.gameObject);
-            UIWeapon[Count].gameObject.SetActive(false);          
-            Debug.Log("Thanks");
-            PlayerChar.Money=PlayerChar.Money+30;
-            
-            //sp.CreatePeople();
-        }
-         if(other.gameObject.name=="BestSword"){
-            Weapon=other.gameObject;
-            other.gameObject.SetActive(false);
-            //Destroy(other.gameObject);
-            UIWeapon[Count].gameObject.SetActive(false);         
-            Debug.Log("Thanks");
-            PlayerChar.Money=PlayerChar.Money+40;
-            
-            //sp.CreatePeople();
-        }
     }
     public void Stop(){
         agent.isStopped=true;
