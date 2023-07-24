@@ -26,6 +26,8 @@ public class SpawnPeople : MonoBehaviour
          GameObject ClonePeople=Instantiate(People,gameObject.transform.position,Quaternion.identity);
          ClonePeople.GetComponent<PeopleAI>().agent.destination= tavern.GetComponent<Tavern>().TavernPoint[Count].transform.position;
          Count++;
+         
+        
     }
     
 }

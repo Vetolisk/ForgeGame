@@ -6,4 +6,5 @@ public class Tavern : MonoBehaviour
 {
      public List <GameObject> TavernPoint;
      
+     
 }

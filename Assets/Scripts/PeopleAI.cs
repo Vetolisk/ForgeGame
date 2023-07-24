@@ -12,50 +12,52 @@ public class PeopleAI : MonoBehaviour
 
     public PlayerСharacteristics PlayerChar;
 
-    private bool EndTask;
-    private bool End;
+    private float timeRemaining;
+    [SerializeField] private float oldtime;
     private int Count;
     // Start is called before the first frame update
     void Start()
     {
         Count=Random.Range(0,2);
-        End=true;
         Player= GameObject.FindGameObjectWithTag("Player");
         PlayerChar=Player.GetComponent<PlayerСharacteristics>();
-         agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
+        agent.isStopped=false;
+        oldtime= Random.Range(10,30);
+        timeRemaining = oldtime;
+
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+        //Проверка пути
+        
         /*
-          agent.destination = Target.transform.position;
-     if(End){
-        if (!agent.pathPending)
+        if (agent.remainingDistance<=agent.stoppingDistance)
         {
-            if (agent.remainingDistance <= agent.stoppingDistance)
-            {
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-                {
                     UIWeapon[Count].gameObject.SetActive(true);
                     EndTask=true;
-                    End=false;
-                    
-                }
-            }
-        }
-        
-        
-        if(EndTask){
-            gameObject.transform.LookAt(Player.transform);
-            
-        }
-        
-      }
-      */
-        
+                    End=false;   
+                    if(EndTask){
+                        gameObject.transform.LookAt(Player.transform);
+                        Debug.Log(EndTask);
+                        EndTask=false;
+             
+                    }           
+        } */    
+     
+
+         if(agent.remainingDistance<=agent.stoppingDistance){ 
+                WaitTime();                    
+        }  
+     
+    
     }
-    void OnTriggerEnter(Collider other)
+    public void TavernStop(){
+
+    }
+        void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.name=="Sword"){
             Destroy(other.gameObject);
@@ -80,6 +82,23 @@ public class PeopleAI : MonoBehaviour
             PlayerChar.Money=PlayerChar.Money+40;
             Destroy(gameObject);
             sp.CreatePeople();
+        }
+    }
+    public void Stop(){
+        agent.isStopped=true;
+        agent.speed=0;
+    }
+    public void NextPointTavern(){
+        agent.SetDestination(Target.transform.position);
+    }
+    public void WaitTime(){
+         if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+        }
+        else
+        {   
+            NextPointTavern();                            
         }
     }
 }
