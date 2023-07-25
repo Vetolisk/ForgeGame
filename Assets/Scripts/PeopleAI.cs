@@ -63,25 +63,38 @@ public class PeopleAI : MonoBehaviour
     }
         void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"{other.gameObject.name} == {UIWeapon[Count].gameObject.name}");
-        if(other.gameObject.name==UIWeapon[Count].gameObject.name){
+        //Debug.Log($"{other.gameObject.name} == {UIWeapon[Count].gameObject.name}");
+        if(other.gameObject.name==UIWeapon[Count].gameObject.name){ //Sword
             Weapon=other.gameObject;
             other.gameObject.transform.SetParent(gameObject.transform);
             other.gameObject.SetActive(false);
             //Destroy(other.gameObject);
-            UIWeapon[Count].gameObject.SetActive(false);          
+            UIWeapon[Count].gameObject.SetActive(false);  
+            for (int i = 0; i < gameObject.transform.childCount ; i++)
+            {
+                if(i==0){
+                    gameObject.transform.GetChild(i).name=UIWeapon[Count].gameObject.name;
+                }
+            }
+                  
             Debug.Log("Thanks");
             PlayerChar.Money=PlayerChar.Money+20;
             agent.SetDestination(Walk.transform.position);
             //sp.CreatePeople();
         }
-          if(other.gameObject.name==UIWeapon[Count].gameObject.name){
+          if(other.gameObject.name==UIWeapon[Count].gameObject.name){ //axe
             gameObject.transform.name="Dwarf";
             Weapon=other.gameObject;
             other.gameObject.transform.SetParent(gameObject.transform);
             other.gameObject.SetActive(false);
             //Destroy(other.gameObject);
-            UIWeapon[Count].gameObject.SetActive(false);          
+            UIWeapon[Count].gameObject.SetActive(false);    
+            for (int i = 0; i < gameObject.transform.childCount ; i++)
+            {
+                if(i==0){
+                    gameObject.transform.GetChild(i).name=UIWeapon[Count].gameObject.name;
+                }
+            }      
             Debug.Log("Thanks");
             PlayerChar.Money=PlayerChar.Money+20;
             agent.SetDestination(TargetToDig.transform.position);

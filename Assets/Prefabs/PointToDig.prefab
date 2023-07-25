@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3029116902525606604}
   - component: {fileID: 2352118672982491649}
-  - component: {fileID: 5776949249212566512}
   - component: {fileID: 3451237167997115194}
+  - component: {fileID: 416539144}
   m_Layer: 0
   m_Name: PointToDig
   m_TagString: Untagged
@@ -47,18 +47,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0.35}
---- !u!114 &5776949249212566512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075724398318629312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e08bc8aa6cc473747b5cce97d6870ff6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &3451237167997115194
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -75,3 +63,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &416539144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075724398318629312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88503e1e840e44e4dbb318472212f733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListPeople: []
+  Stand: {fileID: 0}
+  PrefImage:
+  - {fileID: 3951975432446098044, guid: 8c481c4173452f14d94306e65d441cf2, type: 3}
+  - {fileID: 2613831907178152408, guid: b0109727d216b9240880af2fc6b41d72, type: 3}
+  - {fileID: 3726489725419408542, guid: da29543653bd68a468322824326a09e8, type: 3}
+  - {fileID: 3437145230507802150, guid: 018eb86548fb565488fe31cb25b68dbb, type: 3}
