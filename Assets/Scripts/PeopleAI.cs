@@ -7,6 +7,7 @@ public class PeopleAI : MonoBehaviour
     public SpawnPeople sp;
     public NavMeshAgent agent;
     public GameObject Target;
+    public GameObject TargetToDig;
     public GameObject Walk;
 
     public List <GameObject> UIWeapon;
@@ -50,14 +51,11 @@ public class PeopleAI : MonoBehaviour
                     }           
         } */    
         // Если нет оружия то идти в кузницу, иначе идти заниматься делом
-        if(Weapon==null){
-
-        
+        if(Weapon==null){    
          if(agent.remainingDistance<=agent.stoppingDistance){ 
-                WaitTime();        
+                WaitTime();
+
         }  
-        }else{
-          agent.SetDestination(Walk.transform.position);
         }
     }
     public void TavernStop(){
@@ -65,7 +63,8 @@ public class PeopleAI : MonoBehaviour
     }
         void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name=="Sword"){
+        Debug.Log($"{other.gameObject.name} == {UIWeapon[Count].gameObject.name}");
+        if(other.gameObject.name==UIWeapon[Count].gameObject.name){
             Weapon=other.gameObject;
             other.gameObject.transform.SetParent(gameObject.transform);
             other.gameObject.SetActive(false);
@@ -73,7 +72,19 @@ public class PeopleAI : MonoBehaviour
             UIWeapon[Count].gameObject.SetActive(false);          
             Debug.Log("Thanks");
             PlayerChar.Money=PlayerChar.Money+20;
-            
+            agent.SetDestination(Walk.transform.position);
+            //sp.CreatePeople();
+        }
+          if(other.gameObject.name==UIWeapon[Count].gameObject.name){
+            gameObject.transform.name="Dwarf";
+            Weapon=other.gameObject;
+            other.gameObject.transform.SetParent(gameObject.transform);
+            other.gameObject.SetActive(false);
+            //Destroy(other.gameObject);
+            UIWeapon[Count].gameObject.SetActive(false);          
+            Debug.Log("Thanks");
+            PlayerChar.Money=PlayerChar.Money+20;
+            agent.SetDestination(TargetToDig.transform.position);
             //sp.CreatePeople();
         }
     }
@@ -83,6 +94,10 @@ public class PeopleAI : MonoBehaviour
     }
     public void NextPointTavern(){
         agent.SetDestination(Target.transform.position);
+        UIWeapon[Count].gameObject.SetActive(true);                
+        gameObject.transform.LookAt(Player.transform);
+             
+                    
     }
     public void WaitTime(){
          if (timeRemaining > 0)
