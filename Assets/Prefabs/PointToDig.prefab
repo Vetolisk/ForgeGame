@@ -82,3 +82,5 @@ MonoBehaviour:
   - {fileID: 2613831907178152408, guid: b0109727d216b9240880af2fc6b41d72, type: 3}
   - {fileID: 3726489725419408542, guid: da29543653bd68a468322824326a09e8, type: 3}
   - {fileID: 3437145230507802150, guid: 018eb86548fb565488fe31cb25b68dbb, type: 3}
+  Pos: {x: 0, y: 0, z: 0}
+  UICaveDig: {fileID: 0}
