@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97e712a8063bc2540bfb92693e06ffc4, type: 3}
-  m_Name: SampleCeilingHeightMap
+  m_Script: {fileID: 11500000, guid: cdfb58d3b3c52e547b9e072a03961a5c, type: 3}
+  m_Name: Static Map Holder
   m_EditorClassIdentifier: 
-  properties:
-    minHeight: 5
-    maxHeight: 7
-    smoothness: 54
-    numLayers: 2
-    contributionMult: 0.81
-    compressionMult: 2.94
-  seed: -609617591
+  texture: {fileID: 2800000, guid: b7542340bdabae1499511d27371f05e5, type: 3}
